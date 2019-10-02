@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Test01-index</title>
+<link rel="stylesheet" href="/css/bootstrap.css" />
+<script src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<h1>一覧表示</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>コメント</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="test : ${tests}" th:object="${test}">
+				<td th:text="*{id}"></td>
+				<td th:text="*{name}"></td>
+				<td th:text="*{content}"></td>
+				<td><a class="btn btn-secondary btn-xs" th:href="@{/tests/{id}/edit(id=*{id})}">編集</a></td>
+				<td>
+					<form th:action="@{/tests/{id}(id=*{id})}" th:method="delete">
+						<input class="btn btn-danger btn-xs" type="submit" value="削除" />
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="btn btn-dark" href="/tests/new">新規作成</a>
+</div>
+</body>
+</html>
