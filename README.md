@@ -4,7 +4,7 @@
 - SpringBoot
 - Gradle
 - MyBatis
-- Tymleaf
+- Thymeleaf
 - MySQL
 
 ### 課題 
